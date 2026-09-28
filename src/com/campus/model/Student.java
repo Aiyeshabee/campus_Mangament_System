@@ -1,6 +1,6 @@
 package com.campus.model;
 
-public class Student {
+public abstract class Student {
 
     // Encapsulation
     // instance variables
@@ -88,6 +88,7 @@ public class Student {
             System.out.println("marks: " + java.util.Arrays.toString(marks));
         }
     }
+    public abstract void studentType();
 
     // static methods - belongs to class, not to object
     public static void displaystudentcount() {

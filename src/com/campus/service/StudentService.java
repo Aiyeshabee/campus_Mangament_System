@@ -1,16 +1,16 @@
 package com.campus.service;
 
-import Com.campus.model.Student;
+import com.campus.model.Student;
 
 public class StudentService {
 
     //calculate total marks
-    public int calculateTotal(Student student) {
+    public int calculateTotal( Student student) {
         if (student.getmarks() == null) {
             return 0;
         }
         int total = 0;
-        int[] marks = student.getMarks();
+        int[] marks = student.getmarks();
         for (int mark : marks) {
             total += mark;
         }
@@ -36,7 +36,6 @@ public class StudentService {
         }
 
         int max = marks[0];
-        int[] marks=student.getmarks(); 
         for (int mark : marks) {
             
             if (mark > max) {
@@ -57,7 +56,6 @@ public class StudentService {
         int min = marks[0];
 
         for (int mark : marks) {
-            int[] marks=student.getmarks();
             if (mark < min) {
                 min = mark;
             }
@@ -67,7 +65,7 @@ public class StudentService {
     }
     //grade based on marks
 public char grade(Student student) {
-    int[] marks = student.getMarks();
+    int[] marks = student.getmarks();
 
     if (marks == null || marks.length == 0) {
         return 'F';
@@ -82,11 +80,15 @@ public char grade(Student student) {
         return 'B';
     } else if (average >= 70) {
         return 'C';
+    } else if (average >= 60) {
+        return 'D';
+    } else {
+        return 'F';
     }
 }
 //pass or fail
 public String passOrFail(Student student) {
-    int[] marks = student.getMarks();
+    int[] marks = student.getmarks();
 
     if (marks == null || marks.length == 0) {
         return "Fail";
@@ -103,9 +105,9 @@ public String passOrFail(Student student) {
 // display report card
 public void displayReportCard(Student student) {
 
-    System.out.println("Student Name: " + student.getStudentname());
-    System.out.println("Student ID: " + student.getStudentId());
-    System.out.println("Department: " + student.getDepartment());
+    System.out.println("student Name: " + student.getstudentname());
+    System.out.println("student ID: " + student.getstudentid());
+    System.out.println("Department: " + student.getdepartment());
 
     System.out.println("Total Marks: " + calculateTotal(student));
     System.out.println("Average Marks: " + calculateAverage(student));
