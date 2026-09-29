@@ -1,5 +1,6 @@
 package com.campus.services;
 
+import java.util.*;
 public class StudentService { 
 
 
@@ -7,11 +8,13 @@ public class StudentService {
 // For example, it can have methods to calculate grades, generate report cards, etc.
 
 
-public List<string> getstudents(){
+private List<String> students = new ArrayList<>();
+
+public List<String> getstudents(){
     return students;
 }
 
-public void addstudent(sting nme,string course){
-    students.add(string.value0f(students.size()+ 101) + " " + name + " " + course);
+public void addstudent(String name,String course){
+    students.add("Student " + (students.size() + 1) + ": " + name + " - " + course);
 }
 }
